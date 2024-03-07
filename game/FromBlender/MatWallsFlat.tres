@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ywjyxipxb5j3"]
+
+[ext_resource type="Texture2D" uid="uid://bxmuuvbno357b" path="res://FromBlender/TestLevel_Wall_3.jpg" id="1_ugxwx"]
+
+[resource]
+resource_name = "MatWallsFlat"
+cull_mode = 2
+albedo_texture = ExtResource("1_ugxwx")
+metallic_specular = 0.0
+roughness = 0.0

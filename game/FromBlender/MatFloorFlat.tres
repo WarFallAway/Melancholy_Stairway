@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drs8n8v8w2mhc"]
+
+[ext_resource type="Texture2D" uid="uid://cfkphy43sjrwo" path="res://FromBlender/TestLevel_Floor_2.jpg" id="1_8gvv2"]
+
+[resource]
+resource_name = "MatFloorFlat"
+cull_mode = 2
+albedo_texture = ExtResource("1_8gvv2")
+roughness = 0.5
