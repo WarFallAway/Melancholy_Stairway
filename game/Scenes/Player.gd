@@ -4,7 +4,7 @@ extends CharacterBody3D
 var gravity = -30;
 var max_speed = 8;
 var mouse_sensivity = 0.002;
-
+@onready var pivot = get_node("Pivot");
 #gun variables
 
 
@@ -28,15 +28,21 @@ func get_input():
 		
 		
 func _unhandled_input(event):
-	pass
+	if event is InputEventMouseMotion:
+
+		rotate_y(-event.relative.x * mouse_sensivity);
+		pivot.rotate_x(-event.relative.y * mouse_sensivity);
+		pivot.rotation.x = clamp(pivot.rotation.x, -1.2, 1.2);
+		
 	
 func _physics_process(delta):
 	#gravity
-	velocity.y += gravity*delta;
+	velocity.y += gravity * delta;
 	var desired_velocity = get_input() * max_speed;
 	velocity.x = desired_velocity.x;
 	velocity.z = desired_velocity.z;
 	move_and_slide();
+	
 	
 	
 func change_weapon(weapon):
