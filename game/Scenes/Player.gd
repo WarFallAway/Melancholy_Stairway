@@ -25,8 +25,9 @@ func get_input():
 		input_dir += global_transform.basis.x;
 	input_dir = input_dir.normalized(); #add to cancel strafe running
 	return input_dir
-		
-		
+
+
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 

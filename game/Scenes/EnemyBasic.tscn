@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=3 uid="uid://ckysckywp05gq"]
+
+[ext_resource type="Texture2D" uid="uid://baji2if05x2e6" path="res://Sprites/TestEnemy/Damage/CommandoDamage1.png" id="1_8gbfy"]
+[ext_resource type="Script" path="res://Scenes/EnemyBasic.gd" id="1_bmcf8"]
+[ext_resource type="Texture2D" uid="uid://c6eudxc00ctf4" path="res://Sprites/TestEnemy/Damage/CommandoDamage2.png" id="2_csb6b"]
+[ext_resource type="Texture2D" uid="uid://no65xhxk6d7e" path="res://Sprites/TestEnemy/Die/CommandoDeath1.png" id="3_6lf6o"]
+[ext_resource type="Texture2D" uid="uid://17o8r18ysvba" path="res://Sprites/TestEnemy/Die/CommandoDeath2.png" id="4_xd3ij"]
+[ext_resource type="Texture2D" uid="uid://8dvy66ixfw4m" path="res://Sprites/TestEnemy/Die/CommandoDeath3.png" id="5_f7cj6"]
+[ext_resource type="Texture2D" uid="uid://duqmmxu8kcobx" path="res://Sprites/TestEnemy/Die/CommandoDeath4.png" id="6_jqm0n"]
+[ext_resource type="Texture2D" uid="uid://c21v1mxo2wuyj" path="res://Sprites/TestEnemy/Idle/CommandoIdle.png" id="7_ussa1"]
+[ext_resource type="Texture2D" uid="uid://diilrvxiqj2op" path="res://Sprites/TestEnemy/Shoot/CommandoAttack1.png" id="8_024nj"]
+[ext_resource type="Texture2D" uid="uid://bscicumo7nh0y" path="res://Sprites/TestEnemy/Shoot/CommandoAttack2.png" id="9_8y4ex"]
+[ext_resource type="Texture2D" uid="uid://b4ceyugsqggjx" path="res://Sprites/TestEnemy/Walk/CommandoWalk1.png" id="10_kx1xs"]
+[ext_resource type="Texture2D" uid="uid://bnay5el4c5wsn" path="res://Sprites/TestEnemy/Walk/CommandoWalk2.png" id="11_dh7tb"]
+[ext_resource type="Texture2D" uid="uid://clkp3u4vbau3l" path="res://Sprites/TestEnemy/Walk/CommandoWalk3.png" id="12_45w8c"]
+[ext_resource type="Texture2D" uid="uid://cyohy5pjd6e6n" path="res://Sprites/TestEnemy/Walk/CommandoWalk4.png" id="13_jw1eb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crvur"]
+radius = 0.378
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlxcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8gbfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_csb6b")
+}],
+"loop": true,
+"name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6lf6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xd3ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7cj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jqm0n")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ussa1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_024nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8y4ex")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kx1xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dh7tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_45w8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jw1eb")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="EnemyBasic" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.17842, 0)
+script = ExtResource("1_bmcf8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_crvur")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(2.38, 0, 0, 0, 3.5, 0, 0, 0, 2, 0.0161533, 0.266712, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_tlxcj")
+animation = &"Walk"
+frame_progress = 0.874408
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

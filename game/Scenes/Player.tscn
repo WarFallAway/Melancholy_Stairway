@@ -5,20 +5,19 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42lpl"]
 radius = 0.378041
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_os5af"]
-height = 0.340112
-radius = 0.56532
+[sub_resource type="BoxShape3D" id="BoxShape3D_g143s"]
+size = Vector3(1, 0.227112, 1)
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31606, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.53738, 0)
 script = ExtResource("1_n2qxs")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 shape = SubResource("CapsuleShape3D_42lpl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14776, 0)
-shape = SubResource("CylinderShape3D_os5af")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04221, 0)
+shape = SubResource("BoxShape3D_g143s")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7231, 0)
